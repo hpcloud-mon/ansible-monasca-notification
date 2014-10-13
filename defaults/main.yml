@@ -1,0 +1,10 @@
+---
+alarm_topic: alarm-state-transitions
+email_from_address: hpcs.mon@hp.com
+kafka_group: monasca-notification
+notification_topic: alarm-notifications
+log_dir: /var/log/monasca
+mysql_db: mon
+smtp_timeout: 15
+smtp_user: ""
+smtp_password: ""
