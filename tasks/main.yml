@@ -23,6 +23,6 @@
     - restart monasca-notification
 
 - name: create upstart script
-  copy: dest=/etc/init/monasca-notification.conf owner={{notification_user}} group={{notification_group}} mode=640 src=monasca-notification.conf
+  copy: dest=/etc/init/monasca-notification.conf owner=root group=root mode=644 src=monasca-notification.conf
   notify:
     - restart monasca-notification
