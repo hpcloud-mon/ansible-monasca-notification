@@ -15,10 +15,10 @@
     - restart monasca-notification
 
 - name: create log_dir
-  file: path={{log_dir}} state=directory owner={{notification_user}} group={{notification_group}} mode=775
+  file: path={{monasca_log_dir}} state=directory owner={{notification_user}} group={{notification_group}} mode=775
 
 - name: create conf_file from template
-  template: dest={{conf_file}} owner={{notification_user}} group={{notification_group}} mode=640 src=notification.yaml.j2
+  template: dest={{notification_conf_file}} owner={{notification_user}} group={{notification_group}} mode=640 src=notification.yaml.j2
   notify:
     - restart monasca-notification
 

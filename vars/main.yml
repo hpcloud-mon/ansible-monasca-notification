@@ -1,5 +1,5 @@
 ---
-conf_file: /etc/monasca/notification.yaml
+notification_conf_file: /etc/monasca/notification.yaml
 dependencies:
   - python-mysqldb
   - libmysqlclient-dev
