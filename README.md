@@ -13,6 +13,16 @@ Optionally if needed
 - smtp_user
 - smtp_password
 
+##Example Playbook
+
+    hosts: monasca
+    sudo: yes
+    roles:
+      - {role: tkuhlman.monasca-notification,
+         mysql_user: "{{notification_mysql_user}}",
+         mysql_password: "{{notification_mysql_password}}",
+         tags: [notification]}
+
 ##License
 Apache
 
