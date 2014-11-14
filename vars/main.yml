@@ -3,4 +3,4 @@ dependencies:
   - python-mysqldb
   - libmysqlclient-dev
 notification_user: monasca-notification
-notification_group: monasca
+monasca_group: monasca

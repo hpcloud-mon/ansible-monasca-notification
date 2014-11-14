@@ -1,9 +1,9 @@
 ---
 - name: setup group
-  group: name={{notification_group}} system=yes
+  group: name={{monasca_group}} system=yes
 
 - name: Setup user
-  user: name={{notification_user}} system=yes group={{notification_group}}
+  user: name={{notification_user}} system=yes group={{monasca_group}}
 
 - name: Install deps to avoid pip doing compilation
   apt: name={{item}} state=present
@@ -15,13 +15,13 @@
     - restart monasca-notification
 
 - name: create log_dir
-  file: path={{monasca_log_dir}} state=directory owner=root group={{notification_group}} mode=775
+  file: path={{monasca_log_dir}} state=directory owner=root group={{monasca_group}} mode=775
 
 - name: create conf_dir
-  file: path={{monasca_conf_dir}} state=directory owner=root group={{notification_group}} mode=775
+  file: path={{monasca_conf_dir}} state=directory owner=root group={{monasca_group}} mode=775
 
 - name: create conf_file from template
-  template: dest="{{monasca_conf_dir}}/notification.yaml" owner={{notification_user}} group={{notification_group}} mode=640 src=notification.yaml.j2
+  template: dest="{{monasca_conf_dir}}/notification.yaml" owner={{notification_user}} group={{monasca_group}} mode=640 src=notification.yaml.j2
   notify:
     - restart monasca-notification
 
