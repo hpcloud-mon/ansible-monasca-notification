@@ -2,5 +2,7 @@
 dependencies:
   - python-mysqldb
   - libmysqlclient-dev
+notification_systemd_service: /etc/systemd/system/monasca-notification.service
+notification_upstart_conf: /etc/init/monasca-notification.conf
 notification_user: monasca-notification
 monasca_group: monasca

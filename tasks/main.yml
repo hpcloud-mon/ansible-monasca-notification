@@ -26,6 +26,14 @@
     - restart monasca-notification
 
 - name: create upstart script
-  copy: dest=/etc/init/monasca-notification.conf owner=root group=root mode=644 src=monasca-notification.conf
+  copy: dest={{notification_upstart_conf}} owner=root group=root mode=644 src=monasca-notification.conf
   notify:
     - restart monasca-notification
+  when: ansible_distribution_release == 'trusty'
+
+- name: create systemd config
+  copy: dest={{notification_systemd_service}} owner=root group=root mode=644 src=monasca-notification.service
+  notify:
+    - restart monasca-notification
+  when: ansible_distribution_release != 'trusty'
+
