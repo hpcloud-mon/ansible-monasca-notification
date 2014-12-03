@@ -12,6 +12,9 @@ Installs the [monasca-notification](https://github.com/stackforge/monasca-notifi
 Optionally if needed
 - smtp_user
 - smtp_password
+- mysql_ssl
+  - This is a dictionary corresponding to the options in http://dev.mysql.com/doc/refman/5.0/en/mysql-ssl-set.html
+  - For Example - {'ca':'/path/to/ca'}
 
 ##Example Playbook
 
