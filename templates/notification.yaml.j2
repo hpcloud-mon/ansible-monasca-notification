@@ -10,6 +10,9 @@ mysql:
     user: {{mysql_user}}
     passwd: {{mysql_password}}
     db: {{mysql_db}}
+{% if mysql_ssl is defined %}
+    ssl: {{mysql_ssl}}
+{% endif %}
 
 email:
     server: {{smtp_host}}
