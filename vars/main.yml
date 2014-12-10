@@ -1,5 +1,6 @@
 ---
 dependencies:
+  - build-essential
   - python-mysqldb
   - libmysqlclient-dev
 notification_systemd_service: /etc/systemd/system/monasca-notification.service
