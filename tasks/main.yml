@@ -37,3 +37,7 @@
     - restart monasca-notification
   when: ansible_distribution_release != 'trusty'
 
+- meta: flush_handlers
+
+- name: Enable monasca-notification
+  service: name=monasca-notification state=started enabled=yes
