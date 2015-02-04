@@ -9,8 +9,11 @@
   apt: name={{item}} state=present
   with_items: dependencies
 
+- name: Install kafka-python 0.9.2, a work around until https://review.openstack.org/153051 is released
+  pip: name=kafka-python state=present version=0.9.2
+
 - name: pip install monasca-notification
-  pip: name=monasca-notification state=latest
+  pip: name=monasca-notification state=present  # state=latest is an option once kafka-python is pinned to < 0.9.3
   notify:
     - restart monasca-notification
 
