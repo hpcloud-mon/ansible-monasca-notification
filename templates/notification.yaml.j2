@@ -3,6 +3,7 @@ kafka:
     group: {{notification_kafka_group}}
     alarm_topic: {{alarm_topic}}
     notification_topic: {{notification_topic}}
+    retry_topic: {{retry_topic}}
     max_offset_lag: 600  # In seconds, undefined for none
 
 mysql:
@@ -45,6 +46,8 @@ queues:
 
 zookeeper:
     url: {{zookeeper_hosts}}
+    notification_path: {{zookeeper_notification_path}}
+    retry_path: {{zookeeper_retry_path}}    
 
 logging: # Used in logging.dictConfig
     version: 1
