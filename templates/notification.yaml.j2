@@ -3,6 +3,7 @@ kafka:
     group: {{notification_kafka_group}}
     alarm_topic: {{alarm_topic}}
     notification_topic: {{notification_topic}}
+    notification_retry_topic: {{notification_retry_topic}}
     max_offset_lag: 600  # In seconds, undefined for none
 
 mysql:
@@ -14,20 +15,21 @@ mysql:
     ssl: {{mysql_ssl}}
 {% endif %}
 
-email:
-    server: {{smtp_host}}
-    port: 25
-    user: {{smtp_user}}
-    password: {{smtp_password}}
-    timeout: {{smtp_timeout}}
-    from_addr: {{email_from_address}}
+notification_types:
+    email:
+        server: {{smtp_host}}
+        port: 25
+        user: {{smtp_user}}
+        password: {{smtp_password}}
+        timeout: {{smtp_timeout}}
+        from_addr: {{email_from_address}}
 
-webhook:
-    timeout: 5
+    webhook:
+        timeout: 5
 
-pagerduty:
-    timeout: 5
-    url: "https://events.pagerduty.com/generic/2010-04-15/create_event.json"
+    pagerduty:
+        timeout: 5
+        url: "https://events.pagerduty.com/generic/2010-04-15/create_event.json"
 
 processors:
     alarm:
@@ -35,6 +37,10 @@ processors:
         ttl: 14400  # In seconds, undefined for none. Alarms older than this are not processed
     notification:
         number: 2
+
+retry:
+    interval: {{retry_interval}}
+    max_attempts: {{retry_max_attempts}}
 
 queues:
     alarms_size: 256
@@ -44,6 +50,8 @@ queues:
 
 zookeeper:
     url: {{zookeeper_hosts}}
+    notification_path: {{zookeeper_notification_path}}
+    notification_retry_path: {{zookeeper_notification_retry_path}}    
 
 logging: # Used in logging.dictConfig
     version: 1
