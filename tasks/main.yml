@@ -25,17 +25,28 @@
   notify:
     - restart monasca-notification
 
+- name: Detect if this is a systemd based system
+  command: cat /proc/1/comm
+  register: init
+- set_fact: use_systemd=True
+  when: init.stdout == 'systemd'
+- set_fact: use_systemd=False
+  when: init.stdout != 'systemd'
+
 - name: create upstart script
   copy: dest={{notification_upstart_conf}} owner=root group=root mode=644 src=monasca-notification.conf
   notify:
     - restart monasca-notification
-  when: ansible_distribution_release == 'trusty'
+  when: not use_systemd
 
 - name: create systemd config
   copy: dest={{notification_systemd_service}} owner=root group=root mode=644 src=monasca-notification.service
   notify:
     - restart monasca-notification
-  when: ansible_distribution_release != 'trusty'
+  when: use_systemd
+
+- command: systemctl daemon-reload
+  when: use_systemd
 
 - meta: flush_handlers
 
