@@ -8,11 +8,13 @@
 - name: Install deps to avoid pip doing compilation
   apt: name={{item}} state=present
   with_items: dependencies
+  when: not skip_install
 
 - name: pip install monasca-notification
   pip: name=monasca-notification state=latest
   notify:
     - restart monasca-notification
+  when: not skip_install
 
 - name: create log_dir
   file: path={{monasca_log_dir}} state=directory owner=root group={{monasca_group}} mode=775

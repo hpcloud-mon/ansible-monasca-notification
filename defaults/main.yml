@@ -14,3 +14,5 @@ mysql_db: mon
 smtp_timeout: 15
 smtp_user: ""
 smtp_password: ""
+
+skip_install: False
