@@ -6,7 +6,7 @@ After=kafka.service postfix.service
 Type=simple
 User=monasca-notification
 Group=monasca
-Restart=on-failure
+Restart=always
 ExecStart=/usr/local/bin/monasca-notification
 
 [Install]
