@@ -16,13 +16,16 @@
     - restart monasca-notification
   when: not skip_install
 
-- name: create log_dir
+- name: create monasca log dir
   file: path={{monasca_log_dir}} state=directory owner=root group={{monasca_group}} mode=775
 
-- name: create conf_dir
+- name: create notification log dir
+  file: path={{notification_log_dir}} state=directory owner=root group={{monasca_group}} mode=775
+
+- name: create conf dir
   file: path={{monasca_conf_dir}} state=directory owner=root group={{monasca_group}} mode=775
 
-- name: create conf_file from template
+- name: create conf file from template
   template: dest="{{monasca_conf_dir}}/notification.yaml" owner={{notification_user}} group={{monasca_group}} mode=640 src=notification.yaml.j2
   notify:
     - restart monasca-notification
