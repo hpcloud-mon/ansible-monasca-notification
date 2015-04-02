@@ -9,6 +9,6 @@ respawn
 kill timeout 240
 respawn limit 25 5
 
-setgid monasca
-setuid monasca-notification
+setgid {{ monasca_group }}
+setuid {{ notification_user }}
 exec /usr/local/bin/monasca-notification

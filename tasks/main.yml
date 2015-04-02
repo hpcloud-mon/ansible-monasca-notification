@@ -39,13 +39,13 @@
   when: init.stdout != 'systemd'
 
 - name: create upstart script
-  copy: dest={{notification_upstart_conf}} owner=root group=root mode=644 src=monasca-notification.conf
+  template: dest={{notification_upstart_conf}} owner=root group=root mode=644 src=monasca-notification.conf.j2
   notify:
     - restart monasca-notification
   when: not use_systemd
 
 - name: create systemd config
-  copy: dest={{notification_systemd_service}} owner=root group=root mode=644 src=monasca-notification.service
+  template: dest={{notification_systemd_service}} owner=root group=root mode=644 src=monasca-notification.service.j2
   notify:
     - restart monasca-notification
   when: use_systemd
