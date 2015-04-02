@@ -4,8 +4,8 @@ After=kafka.service postfix.service
 
 [Service]
 Type=simple
-User=monasca-notification
-Group=monasca
+User={{ notification_user }}
+Group={{ monasca_group }}
 Restart=always
 ExecStart=/usr/local/bin/monasca-notification
 
