@@ -10,8 +10,13 @@
   with_items: dependencies
   when: not skip_install
 
+- name: Use pip index URL if specified
+  set_fact:
+     notification_pip_extra_arg: "-i {{ pip_index_url }}"
+  when: pip_index_url is defined
+
 - name: pip install monasca-notification
-  pip: name=monasca-notification state=latest
+  pip: name=monasca-notification state=latest extra_args="{{ notification_pip_extra_arg }}"
   notify:
     - restart monasca-notification
   when: not skip_install
