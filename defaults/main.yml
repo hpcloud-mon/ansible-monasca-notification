@@ -2,6 +2,7 @@
 alarm_topic: alarm-state-transitions
 email_from_address: hpcs.mon@hp.com
 notification_kafka_group: monasca-notification
+notification_pip_extra_arg:
 notification_topic: alarm-notifications
 notification_retry_topic: retry-notifications
 retry_interval: 30
