@@ -11,6 +11,7 @@ zookeeper_notification_path: /notification/alarms
 zookeeper_notification_retry_path: /notification/retry
 monasca_conf_dir: /etc/monasca
 monasca_log_dir: /var/log/monasca
+pip_conf_dir: ~/.pip
 mysql_db: mon
 smtp_timeout: 15
 smtp_user: ""
