@@ -16,4 +16,5 @@ smtp_timeout: 15
 smtp_user: ""
 smtp_password: ""
 
+monasca_virtualenv_dir: /opt/monasca
 skip_install: False

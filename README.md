@@ -1,5 +1,6 @@
 #monasca-notification
-Installs the [monasca-notification](https://github.com/stackforge/monasca-notification) part of the [Monasca](https://wiki.openstack.org/wiki/Monasca) project.
+Installs the [monasca-notification](https://github.com/stackforge/monasca-notification) in a virtualenv.
+Monasca Notification is part of the [Monasca](https://wiki.openstack.org/wiki/Monasca) project.
 
 ##Requirements
 - kafka_hosts - comma seperate list of kafka hosts
