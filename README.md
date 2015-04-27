@@ -10,6 +10,7 @@ Installs the [monasca-notification](https://github.com/stackforge/monasca-notifi
 - zookeeper_hosts - comma seperate list of zookeeper hosts
 
 Optionally if needed
+- pip_index_url: Index URL to use instead of the default for installing pip packages 
 - smtp_user
 - smtp_password
 - mysql_ssl

@@ -10,6 +10,9 @@
   with_items: dependencies
   when: not skip_install
 
+- include: pip_index.yml
+  when: not skip_install
+
 - name: pip install monasca-notification
   pip: name=monasca-notification state=latest
   notify:
