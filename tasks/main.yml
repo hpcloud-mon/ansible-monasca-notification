@@ -14,7 +14,7 @@
   when: not skip_install
 
 - name: pip install virtualenv
-  pip: name=virtualenv state=present
+  apt: name=python-virtualenv state=present
   when: not skip_install
 
 - name: pip install monasca-notification
