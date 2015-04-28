@@ -11,4 +11,4 @@ respawn limit 25 5
 
 setgid {{ monasca_group }}
 setuid {{ notification_user }}
-exec /usr/local/bin/monasca-notification
+exec {{ monasca_virtualenv_dir }}/bin/monasca-notification
