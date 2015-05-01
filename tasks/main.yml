@@ -13,10 +13,6 @@
 - include: pip_index.yml
   when: not skip_install
 
-- name: pip install virtualenv
-  apt: name=python-virtualenv state=present
-  when: not skip_install
-
 - name: pip install monasca-notification
   pip: name=monasca-notification state=latest virtualenv="{{monasca_virtualenv_dir}}"
   notify:

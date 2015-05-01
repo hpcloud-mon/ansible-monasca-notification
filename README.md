@@ -3,6 +3,8 @@ Installs the [monasca-notification](https://github.com/stackforge/monasca-notifi
 Monasca Notification is part of the [Monasca](https://wiki.openstack.org/wiki/Monasca) project.
 
 ##Requirements
+virtualenv must be installed.
+
 - kafka_hosts - comma seperate list of kafka hosts
 - mysql_host
 - mysql_user
