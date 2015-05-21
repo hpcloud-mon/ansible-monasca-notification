@@ -4,6 +4,9 @@ email_from_address: hpcs.mon@hp.com
 notification_kafka_group: monasca-notification
 notification_topic: alarm-notifications
 notification_retry_topic: retry-notifications
+notification_enable_email: true
+notification_enable_webhook: true
+notification_enable_pagerduty: true
 retry_interval: 30
 retry_max_attempts: 5
 zookeeper_notification_path: /notification/alarms
