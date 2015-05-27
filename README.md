@@ -16,6 +16,9 @@ Optionally if needed
 - pip_index_url: Index URL to use instead of the default for installing pip packages 
 - smtp_user
 - smtp_password
+- notification_enable_email: Set to false to disable email notifications
+- notification_enable_webhook: Set to false to disable webhook notifications
+- notification_enable_pagerduty: Set to false to disable pagerduty notifications
 - mysql_ssl
   - This is a dictionary corresponding to the options in http://dev.mysql.com/doc/refman/5.0/en/mysql-ssl-set.html
   - For Example - {'ca':'/path/to/ca'}
