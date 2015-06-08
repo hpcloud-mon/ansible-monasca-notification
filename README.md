@@ -19,6 +19,7 @@ Optionally if needed
 - notification_enable_email: Set to false to disable email notifications
 - notification_enable_webhook: Set to false to disable webhook notifications
 - notification_enable_pagerduty: Set to false to disable pagerduty notifications
+- monasca_log_level: Log level for the Notification log, default to WARN
 - mysql_ssl
   - This is a dictionary corresponding to the options in http://dev.mysql.com/doc/refman/5.0/en/mysql-ssl-set.html
   - For Example - {'ca':'/path/to/ca'}
