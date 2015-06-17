@@ -20,4 +20,5 @@ smtp_user: ""
 smtp_password: ""
 
 monasca_virtualenv_dir: /opt/monasca
+run_mode: Deploy
 skip_install: False
