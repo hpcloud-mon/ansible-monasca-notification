@@ -23,6 +23,7 @@ Optionally if needed
 - mysql_ssl
   - This is a dictionary corresponding to the options in http://dev.mysql.com/doc/refman/5.0/en/mysql-ssl-set.html
   - For Example - {'ca':'/path/to/ca'}
+- run_mode: One of Deploy, Stop, Install, Configure or Start. The default is Deploy which will do Install, Configure, then Start.
 
 ##Example Playbook
 
