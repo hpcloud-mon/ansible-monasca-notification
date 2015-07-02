@@ -13,7 +13,7 @@ virtualenv must be installed.
 - zookeeper_hosts - comma seperate list of zookeeper hosts
 
 Optionally if needed
-- pip_index_url: Index URL to use instead of the default for installing pip packages 
+- pip_index_url: Index URL to use instead of the default for installing pip packages
 - smtp_user
 - smtp_password
 - notification_enable_email: Set to false to disable email notifications
