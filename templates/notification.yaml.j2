@@ -21,8 +21,8 @@ notification_types:
     email:
         server: "{{smtp_host}}"
         port: 25
-        user: "{{smtp_user}}"
-        password: "{{smtp_password}}"
+        user: {% if smtp_user %}"{{smtp_user}}"{% endif %}
+        password: {% if smtp_password %}"{{smtp_password}}"{% endif %}
         timeout: {{smtp_timeout}}
         from_addr: "{{email_from_address}}"
 {% endif %}
