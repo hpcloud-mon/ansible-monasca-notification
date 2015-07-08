@@ -17,7 +17,7 @@ mysql:
 
 notification_types:
 
-{% if notification_enable_email %}
+{% if notification_enable_email | bool %}
     email:
         server: "{{smtp_host}}"
         port: 25
@@ -27,12 +27,12 @@ notification_types:
         from_addr: "{{email_from_address}}"
 {% endif %}
 
-{% if notification_enable_webhook %}
+{% if notification_enable_webhook | bool %}
     webhook:
         timeout: 5
 {% endif %}
 
-{% if notification_enable_pagerduty %}
+{% if notification_enable_pagerduty | bool %}
     pagerduty:
         timeout: 5
         url: "https://events.pagerduty.com/generic/2010-04-15/create_event.json"
