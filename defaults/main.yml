@@ -26,4 +26,3 @@ skip_install: False
 
 # flag to track restart requirement during reconfigure
 monasca_notification_restart_required: false
-
