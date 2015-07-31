@@ -23,3 +23,7 @@ smtp_password: ""
 monasca_virtualenv_dir: /opt/monasca
 run_mode: Deploy
 skip_install: False
+
+# flag to track restart requirement during reconfigure
+monasca_notification_restart_required: false
+

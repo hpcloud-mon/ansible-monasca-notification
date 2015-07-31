@@ -2,3 +2,7 @@
 - name: restart monasca-notification
   service: name=monasca-notification state=restarted enabled=yes
   when: run_mode == 'Deploy'
+
+- name: monasca_notification_config_change
+  set_fact:
+    monasca_notification_restart_required: true
