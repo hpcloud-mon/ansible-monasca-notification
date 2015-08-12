@@ -1,4 +1,6 @@
 ---
+# ©Copyright 2015 Hewlett-Packard Development Company, L.P.
+
 alarm_topic: alarm-state-transitions
 email_from_address: hpcs.mon@hp.com
 notification_kafka_group: monasca-notification
