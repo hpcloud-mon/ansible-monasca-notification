@@ -7,9 +7,6 @@
 - name: Setup user
   user: name={{notification_user}} system=yes group={{monasca_group}}
 
-- name: create monasca log dir
-  file: path={{monasca_log_dir}} state=directory owner=root group={{monasca_group}} mode=775
-
 - name: create notification log dir
   file: path={{notification_log_dir}} state=directory owner=root group={{monasca_group}} mode=775
 
@@ -45,3 +42,6 @@
   when: use_systemd
 
 - meta: flush_handlers
+
+- name: Enable monasca-notification
+  service: name=monasca-notification state=started enabled=yes
