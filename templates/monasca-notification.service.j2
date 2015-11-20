@@ -7,9 +7,9 @@ After=network.target
 Type=simple
 User={{ notification_user }}
 Group={{ monasca_group }}
-ExecStart={{ monasca_virtualenv_dir }}/bin/monasca-notification
 Restart=always
 RestartSec=10
+ExecStart={{ monasca_virtualenv_dir }}/bin/monasca-notification
 
 [Install]
 WantedBy=multi-user.target
