@@ -8,12 +8,6 @@
   include_vars: "{{ ansible_os_family|lower }}_{{ database_backend }}.yml"
   when: database_support
 
-- name: Fetch pip getter
-  get_url: url="{{ get_pip_download_url }}/get-pip.py" dest={{ download_tmp_dir }}/ timeout=60
-
-- name: Install pip
-  command: "python {{ download_tmp_dir }}/get-pip.py"
-
 - name: Install deps to avoid pip doing compilation
   yum: name={{item}} state=present
   with_items: dependencies
@@ -38,7 +32,7 @@
   when: not skip_install
 
 - name: pip install virtualenv
-  pip: name=virtualenv state=latest
+  pip: name=virtualenv version=13.1.2
   when: not skip_install
 
 - name: pip install monasca-notification
