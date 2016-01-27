@@ -35,6 +35,10 @@
   pip: name=virtualenv version=13.1.2
   when: not skip_install
 
+- name: pip install pymysql
+  pip: name=pymysql state=latest virtualenv="{{monasca_virtualenv_dir}}" virtualenv_site_packages=yes
+  when: not skip_install
+
 - name: pip install monasca-notification
   pip: name="{{ monasca_notification_name }}" extra_args="--pre" state=latest virtualenv="{{monasca_virtualenv_dir}}" virtualenv_site_packages=yes
   notify:
